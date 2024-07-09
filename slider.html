@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infinite Slider</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .main-holder {
+      margin: auto;
+      margin-top: 5rem;
+      width: 1000px;
+      height: 500px;
+      box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.137);
+      border-radius: 20px;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      position: relative;
+    }
+
+    .slide-container {
+      display: flex;
+    }
+
+    .slide {
+      width: 100%;
+      flex: 0 0 auto;
+      transition: transform 1s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-holder">
+    <div class="slide-container" id="slider">
+      <img src="https://picsum.photos/id/237/1000/500" class="slide" alt="">
+      <img src="https://picsum.photos/id/289/1000/500" class="slide" alt="">
+      <img src="https://picsum.photos/id/200/1000/500" class="slide" alt="">
+      <img src="https://picsum.photos/id/233/1000/500" class="slide" alt="">
+    </div>
+  </div>
+  <button onclick="prev()">PREV</button>
+  <button onclick="next()">NEXT</button>
+  <script>
+    const slider = document.getElementById("slider");
+    const slides = document.querySelectorAll(".slide");
+    let counter = 1;
+
+    // Clone the first and last slides
+    const firstClone = slides[0].cloneNode(true);
+    const lastClone = slides[slides.length - 1].cloneNode(true);
+
+    // Append clones to the slider
+    slider.appendChild(firstClone);
+    slider.insertBefore(lastClone, slides[0]);
+
+    const slideWidth = slides[0].clientWidth;
+
+    slider.style.transform = `translateX(${-counter * slideWidth}px)`;
+
+    function slideImage() {
+      slider.style.transition = "transform 1s ease-in-out";
+      slider.style.transform = `translateX(${-counter * slideWidth}px)`;
+    }
+
+    function next() {
+      counter++;
+      slideImage();
+    }
+
+    function prev() {
+      counter--;
+      slideImage();
+    }
+
+    // Reset the counter and adjust the position when reaching cloned slides
+    slider.addEventListener("transitionend", () => {
+      if (counter === slides.length - 1) {
+        counter = 1;
+        slider.style.transition = "none";
+        slider.style.transform = `translateX(${-counter * slideWidth}px)`;
+      }
+      if (counter === 0) {
+        counter = slides.length - 2;
+        slider.style.transition = "none";
+        slider.style.transform = `translateX(${-counter * slideWidth}px)`;
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+@media only screen and (max-width: 900px){
+    .product-card{
+        flex-direction: column;
+        height: 40rem;
+        width: 50%;
+        padding: 1rem;
+    }
+    .product-card-top{
+        height: 40rem;
+        /* background-color: red; */
+        border-bottom: 1px solid rgba(0, 0, 0, 0.089);
+        width: 100%;
+    }
+    .product-card-bottom{
+        border-left: none;
+        width: 100%;
+    }
+    form{
+        width: 90%;
+        max-width: 40rem;
+        transform: translateY(-3rem);
+    }
+}

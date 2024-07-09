@@ -1,0 +1,471 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;300;400;500&display=swap');
+:root{
+    --dark-blue: #041023;
+    --pale:#6366f1;
+    --text-black:#0a1425;
+    --dark-grey:#edebfe;
+    --grey:#f7f8f9;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+html{
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+.nav{
+    background-color: #041023;
+    height: 7vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+.nav{
+    height: 9vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 0 20rem; */
+    background-color: var(--dark-blue);
+    box-shadow: 0 0 30px 10px rgba(0,0,0,0.1);
+    /* overflow: hidden; */
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #6365f11e;
+}
+.nav-segment{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav h3{
+    color: white;
+    font-weight: 800;
+    letter-spacing: 0;
+}
+.nav ul{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+}
+nav li{
+    margin: 0 2rem;
+    color: rgb(219, 219, 219);
+    padding: 1rem 0;
+    transition: all 0.2s ease-in-out;
+    font-weight: 500;
+}
+nav li::after{
+    content: '';
+    height: 2px;
+    width: 00%;
+    background-color: var(--pale);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: all 0.2s ease-in-out;
+}
+::-webkit-scrollbar{
+    width: 10px;
+    background-color: #040e1f;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--pale);
+    border-radius: 20px;
+}
+nav a:hover li::after{
+    width: 100%;
+}
+nav a:hover li{
+    color: white;
+}
+nav a{
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+.nav a:hover{
+    transform: translateY(-3px);
+}
+.nav-mobile{
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 70%;
+    background-color: #040e1ff6;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    transition: all 0.2s ease-in-out;
+    align-items: center;
+    overflow: hidden;
+    backdrop-filter: blur(4px);
+    z-index: 100000;
+    transform: translateX(100%);
+    padding-top: 3rem;
+}
+.cross{
+    height: 5rem;
+    width: 90%;
+    /* background-color: yellow; */
+}
+.cross-img{
+    height: 3.5rem;
+    opacity: 0.8;
+    width: 5rem;
+    background-image: url(../images/cross.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.nav-mobile ul{
+    flex-direction: column;
+}
+.nav-mobile a{
+    text-decoration: none;
+    /* margin-top: 2rem; */
+    padding: 2rem;
+    width: 1000%;
+    color: white;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    /* background-color: rebeccapurple; */
+}
+.nav-mobile a:hover{
+    background-color: black;
+    cursor: pointer;
+    color: white;
+}
+.button1{
+    padding: 1rem 2rem;
+    border: 1px solid rgb(219, 219, 219);
+    border: 2px solid var(--pale);
+    background-color: transparent;
+    color: rgb(219, 219, 219);
+    font-weight: 500;
+    transition: all 0.2s ease-in-out, color 0.1s ease-in;
+}
+.button1:hover{
+    background-color: var(--pale);
+    color: black;
+    color: white;
+    cursor: pointer;
+}
+.ham{
+    height: 3.5vh;
+    width: 5vh;
+    /* background-color: red; */
+    background-image: url(../images/ham.svg);
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+    z-index: 100000;
+    display: none;
+}
+
+nav h3{
+    font-size: 1.2rem;
+    animation: float 2s ease-in-out infinite;
+}
+
+.body-segment{
+    width: 80rem;
+    height: auto;
+    padding: 0 1rem;
+}
+
+.main{
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+.main-segment{
+    width: 80rem;
+    height: auto;
+    /* background-color: yellow; */
+    padding-top: calc(7vh + 7rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+.main-segment-left{
+    width: 30%;
+    min-width: 20rem;
+    /* height: 50vh; */
+    height: 30rem;
+    /* background-color: green; */
+    /* background-image: url(https://5.imimg.com/data5/LK/BJ/QC/SELLER-80805052/newtech-table-top-weighting-machine.jpg); */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 0 10px 5px rgba(128, 128, 128, 0.151);
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+}
+/* .main-segment-left:hover{
+    background-size: 110%;
+} */
+.tabletop{
+    background-image: url(../images/table\ top.png);
+    background-size: 70%;
+}
+.digital{
+    background-position-x: -50px;
+    background-image: url(../images/di.png);
+    /* scale: 1.2; */
+    background-size: 120%;
+}
+.piece{
+    background-image: url(../images/pieceCounting.png);
+}
+.platform{
+
+    background-image: url(../images/pp.png);
+    background-size: 60%;
+}
+.heavy{
+    background-image: url(../images/heavyPlatform.png);
+    background-size: 60%;
+}
+.milk{
+    background-image: url(../images/milk.png);
+    /* background-size: 60%; */
+}
+.crane{
+    background-image: url(../images/cs.jpg);
+    background-size: contain;
+}
+.overhead{
+    background-image: url(../images/overhead.webp);
+    background-size: cover;
+}
+.pocket{
+    background-image: url(../images/ps.jpg);
+    background-size: contain;
+}
+.kitchen{
+    background-image: url(../images/ks.jpg);
+    background-size: contain;
+}
+.hanging{
+    background-image: url(../images/hanging.png);
+    background-size: contain;
+}
+.glass{
+    background-image: url(../images/pws.avif);
+    background-size: contain;
+}
+.intelligent{
+    background-image: url(../images/it.png);
+    background-size: contain;
+}
+.digitalindicator{
+    background-image: url(../images/di.png);
+    background-size: 130%;
+}
+.junctionbox{
+    background-image: url(../images/junction\ box.png);
+    background-size: contain;
+}
+.extradisplay{
+    background-image: url(../images/extra.png);
+    background-size: contain;
+}
+.weighbridgeloadcell{
+    background-image: url(../images/zemic.png);
+    background-size: contain;
+}
+.platformloadcell{
+    background-image: url(../images/loadcell.png);
+    background-size: contain;
+}
+.singleended{
+    background-image: url(../images/single\ handed\ loadcell.png);
+    background-size: contain;
+}
+.compression{
+    background-image: url(../images/compressinLoadcell.png);
+}
+.wire{
+    background-image: url(../images/wireRopeLoadcell.png);
+}
+.jewel{
+    background-image: url(../images/lab.png);
+    background-size: 130%;
+}
+.plci{
+    background-image: url(../images/plc.png);
+}
+.pitType{
+    background-image: url(../images/pitTypeWeighBridge.jpeg);
+    background-size: contain;
+}
+.pitLess{
+    background-image: url(../images/pitlessWeighBridge.jpeg);
+    background-size: contain;
+}
+.mobilew{
+    background-image: url(../images/mobile.png);
+    background-size: contain;
+}
+.printerIndicator{
+    background-image: url(../images/printerIndicator.png);
+    background-size: contain;
+}
+.main-segment-right{
+    width: 70%;
+    height: auto;
+    padding-left: 6rem;
+    padding-bottom: 10rem;
+    /* background-color: red; */
+}
+h6{
+    color: rgb(168, 168, 168);
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+h1{
+    font-size: 2.2rem;
+    color: var(--text-black);
+}
+p{
+    color: rgb(88, 88, 88);
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+}
+.big{
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-top: 2rem;
+}
+li{
+    color: rgb(88, 88, 88);
+    margin-top: 0.6rem;
+    font-size: 1.1rem;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+}
+h5{
+    font-size: 1.5rem;
+    margin-top: 2rem;
+}
+sup{
+    font-size: 0.9rem;
+    color: rgb(73, 73, 73);
+}
+
+.flex-btn{
+    display: flex;
+    width: 58%;
+    justify-content: space-between;
+    height: auto;
+    margin-top: 2rem;
+}
+.flex-btn-left{
+    width: 28%;
+    height: 3rem;
+    /* background-color: red; */
+}
+.buy{
+    font-size: .9rem;
+    color: rgb(88, 88, 88);
+    margin-bottom: 0.5rem;
+}
+.flex-btn-right{
+    width: 70%;
+    height: 3rem;
+    /* background-color: yellow; */
+}
+.flex-btn-left-qty{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.minus{
+    flex-basis: 33%;
+    height: 3rem;
+    background-color: white;
+border: 1px solid rgba(128, 128, 128, 0.473);
+transition: all .2s ease-in-out;
+}
+.minus:hover{
+    background-color: rgb(228, 228, 228);
+    cursor: pointer;
+}
+.value{
+    flex-basis: 33%;
+    background-color: white;
+    height: 3rem;
+    border: 1px solid rgba(128, 128, 128, 0.473);
+    display: flex;
+    border-right: none;
+    border-left: none;
+    justify-content: center;
+    align-items: center;
+}
+.cta-buy{
+    background-color: var(--pale);
+    height: 3rem;
+    flex-basis: 100%;
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: all .2s ease-in-out;
+    border-radius: 5px;
+}
+.cta-buy:hover{
+    background-color: #484ae0;
+    cursor: pointer;
+}
+select{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    /* outline: 1px solid rgb(88, 88, 88); */
+    width: 60%;
+    border: 1px solid rgb(168, 168, 168);
+    padding: 1rem;
+    border-radius: 5px;
+}
+select:focus{
+    outline: 1px solid rgba(73, 73, 73, 0.425);
+}
+select > select-dropdown {
+    padding: 1rem;
+  }
+  @keyframes float{
+    0%,100%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(3px);
+    }
+  }
+  .cart-button{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: #6366f1;
+    position: fixed;
+    bottom: 20px;
+    background-image: url(../images/cart.png);
+    background-size: 40%;
+    background-position:center;
+    background-repeat: no-repeat;
+    
+    right: 20px;
+    
+}

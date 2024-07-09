@@ -1,0 +1,259 @@
+@media only screen and (max-width: 1380px){
+    html{
+        font-size: 15px;
+    }
+}
+@media only screen and (max-width: 1265px){
+    .body-segment{
+        padding: 0 3rem;
+    }
+    .why{
+        /* height: auto; */
+        padding: 3rem 0;
+    }
+    .about-us{
+        padding: 3rem 0;
+    }
+    .testimonial-card{
+        flex-basis: 47%;
+    }
+}
+@media only screen and (max-width: 1230px){
+    html{
+        font-size: 14px;
+    }
+    .about-card{
+        flex-basis: 47%;
+    }
+
+}
+
+@media only screen and (max-width: 1197px){
+    .contact-us{
+        display: flex;
+        justify-content: center;
+    }
+    .hero{
+        height: 70vh;
+    }
+    .hero::before{
+        height: 63vh;
+    }
+    .contact-segment{
+        flex-direction: column;
+    }
+    .left-c{
+        width: 100%;
+        /* background-color: yellow; */
+        margin-bottom: 2rem;
+        /* width: 60%; */
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        padding: 0 2rem;
+    }
+    .m{
+        margin-bottom: 0rem;
+    }
+    .lch{
+        margin-top: 1rem;
+    }
+    .right-c{
+        width: 100%;
+        padding: 0 2rem;
+        /* background-color: cyan; */
+        
+    }
+    input{
+        width: 100%;
+    }
+    #w3review{
+        width: 100%;
+    }
+    .button-section-form{
+        justify-content: center;
+        width: 100%;
+        gap: 3rem;
+    }
+}
+@media only screen and (max-width: 950px){
+.footer-segment{
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    padding: 0 4rem;
+    justify-content: center;
+    align-items: center;
+    padding: 7rem 4rem;
+    /* background-color: red; */
+    /* background-color: blue; */
+}
+.footer-card{
+    width: auto;
+    flex-basis: 100%;
+    /* background-color: red; */
+    margin: 2rem 0;
+}
+.product-card-wrapper{
+    justify-content: space-between;
+}
+.testimonial-card{
+    flex-basis: 70%;
+}
+.testh{
+    text-align: center;
+    width: 100%;
+    /* display: inline; */
+    display: flex;
+    justify-content: center;
+    /* background-color: rebeccapurple; */
+}
+.testimonial-wrapper{
+    justify-content: center;
+}
+.ptech{
+    font-size: 3.5rem;
+ }
+ .ptech4{
+    font-size: 1.2rem;
+ }
+ .button1{
+    font-size: 0.9rem;
+ }
+}
+@media only screen and (max-width: 783px){
+    .founder{
+        flex-direction: column-reverse;
+    }
+    .founder-right{
+        width: 100%;
+    }
+    .founder-left{
+        margin-top: 5rem;
+    }
+    .about-card{
+        flex-basis: 100%;
+    }
+    .links{
+        display: none;
+    }
+    .body-segment{
+        padding: 0 4rem;
+    }
+    .shop{
+        display: none;
+    }
+    .product-card-wrapper{
+        justify-content: center;
+    }
+    .products4{
+        width: 100%;
+    }
+    .ham{
+        display: block;
+    }
+    .product-card{
+        max-width: 32rem;
+        min-width: 32rem;
+        height: 30rem;
+    }
+    .product-img{
+        height: 14rem;
+    }
+}
+
+@media only screen and (max-width: 611px){
+    html{
+        font-size: 12px;
+    }
+    .contact-segment{
+        padding: 0 2rem;
+    }
+    .button-section-form{
+        gap: none;
+        justify-content: space-between;
+    }
+    .button-form{
+        padding: 1rem 3rem;
+    }
+    .lch{
+        font-size: 1.7rem;
+    }
+    .testimonial-card{
+        flex-basis: 100%;
+        /* height: 30rem; */
+    }
+
+}
+@media only screen and (max-width: 500px){
+ .testimonial-card{
+    height: 28rem;
+ }
+ html{
+    font-size: 11px;
+ }
+ .buy{
+    font-size: 0.9rem;
+ }
+ .info-btn{
+    font-size: 0.9rem;
+ }
+ /* .nav{
+    display: none;
+ } */
+ .ptech{
+    font-size: 3rem;
+ }
+ .ptech4{
+    font-size: 1rem;
+ }
+ .about-us::before{
+    display: none;
+ }
+ .about-us::after{
+    display: none;
+ }
+ .abour-us{
+    padding: 0;
+ }
+ .about-card-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ .about-card{
+    flex-basis: 90%;
+ }
+ .about-segment{
+    padding: 2rem;
+    width: 100%;
+ }
+ .products{
+    width: 100%;
+ }
+ .products-segment{
+    width: 100%;
+ }
+ .button1{
+    padding: 0.8rem 1.7rem;
+    font-size: 0.8rem;
+ }
+}
+@media only screen and (max-width: 377px){
+/* .about-us{
+    display: none;
+} */
+/* .hero{
+    display: none;
+} */
+/* .products{
+    display: none;
+} */
+/* .trust{
+    display: none;
+} */
+/* form{
+    display: none;
+} */
+}

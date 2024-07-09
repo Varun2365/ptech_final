@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Template</title>
+    <link rel="stylesheet" href="template.css">
+</head>
+<body>
+    <nav class="nav"></nav>
+    <div class="main">
+        <div class="main-segment">
+            <div class="main-segment-left"></div>
+            <div class="main-segment-right">
+                <h6>Personal Weighing Scales</h6>
+                <h1>Digital Indicator</h1>
+                <p class="big">Excellent Weighing Machine for</p>
+                <ul>
+                    <li>Retail Stores, Household works, Small Businesses, Industrial Use</li>
+                </ul>
+                <p class="big">Technical Specifications</p>
+                <ul>
+                    <li>Pan Size: 250mm X 300mm</li>
+                    <li>e-Value: 2g</li>
+                    <li>Min Capacity: 40g</li>
+                    <li>Max Capacity: 30Kg</li>
+                </ul>
+                <div class="flex" style="display: flex; align-items: end;">
+                    <h5>Price: <sup>₹</sup> <h5 class="v" id="price">4000</h5> /- </h5>
+                </div>
+                <select name="hello" id="value" onchange="updatePrice()">
+                    <option value="Table Top With Single Display">Table Top With Single Display</option>
+                    <option value="Table Top with Double Display">Table Top With Double Display</option>
+                </select>
+                <div class="flex-btn">
+                    <div class="flex-btn-left">
+                        <h3 class="buy">Qty:</h3>
+                        <div class="flex-btn-left-qty">
+                            <button class="minus" onclick="minus()">-</button>
+                            <h4 class="value">1</h4>
+                            <button class="minus" onclick="plus()">+</button>
+                        </div>
+                    </div>
+                    <div class="flex-btn-right">
+                        <h3 class="buy">Confirm Order:</h3>
+                        <div class="flex-btn-left-qty">
+                            <button class="cta-buy" onclick='addItemToCart("tabletop")'>Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="itemScript.js"></script>
+    <script>
+        function updatePrice() {
+            var select = document.getElementById("value");
+            var priceElement = document.getElementById("price");
+
+            if (select.value === "Table Top With Single Display") {
+                priceElement.innerText = "2500";
+            } else if (select.value === "Table Top with Double Display") {
+                priceElement.innerText = "2700";
+            }
+        }
+
+        function minus() {
+            var value = document.querySelector(".value");
+            if (value.innerText > 1) {
+                value.innerText--;
+            }
+        }
+
+        function plus() {
+            var value = document.querySelector(".value");
+            value.innerText++;
+        }
+    </script>
+</body>
+</html>

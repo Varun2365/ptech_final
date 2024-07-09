@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crane Scale</title>
+    <link rel="stylesheet" href="template.css">
+    <link rel="stylesheet" href="template-responsive.css">
+    <link rel="shortcut icon" href="../images/store-favicon.png" type="image/x-icon">
+
+    <!-- <link rel="stylesheet" href="../style.css"> -->
+    <!-- <link rel="stylesheet" href="../style-responsive.css"> -->
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-mobile">
+            <div class="cross">
+                <div class="cross-img" onclick="hideMenu()"></div>
+            </div>
+            <div class="links-mobile">
+                <ul>
+                    <a href="../index.html" onclick="hideMenu()">
+                        <li>HOME</li>
+                    </a>
+                    <a href="../index.html#services" onclick="hideMenu()">
+                        <li>PRODUCTS</li>
+                    </a>
+                    <a href="../index.html#about" onclick="hideMenu()">
+                        <li>ABOUT</li>
+                    </a>
+                    <a href="cart.html" onclick="hideMenu()">
+                        <li>CART</li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+        <nav class="nav">
+            <div class="body-segment nav-segment">
+    
+                <div class="logo">
+                    <a href="../index.html" > <h3>P-TECH SCALES</h3></a>
+                </div>
+                <div class="links">
+                    <ul>
+                        <a href="../index.html">
+                            <li>HOME</li>
+                        </a>
+                        <a href="../index.html#services">
+                            <li>PRODUCTS</li>
+                        </a>
+                        <a href="../index.html#about">
+                            <li>ABOUT</li>
+                        </a>
+                        <!-- <a href="#contact">
+                            <li>CONTACT</li>
+                        </a> -->
+                    </ul>
+                </div>
+                <div class="shop"><a href="cart.html"><button class="button1">CART</button></a></div>
+                <div class="ham" onclick="showMenu()"></div>
+            </div>
+        </nav>
+    </nav>
+    <div class="main">
+        <div class="main-segment">
+            <div class="main-segment-left crane"></div>
+            <div class="main-segment-right">
+                <h6 class = "second">Industrial Weighing Scales</h6>
+                <h1 class = "second">Crane Scale</h1>
+                <p class="big second">Excellent Quality Crane Scale for</p>
+                <ul class = "second">
+                    <li>Industrial Use</li>
+                </ul>
+                <p class="big second">Technical Specifications</p>
+                <ul class = "second">
+                    <!-- <li></li> -->
+                    <!-- <li>e-Value: 2g</li>
+                    <li>Min Capacity: 40g</li> -->
+                    <li>Capacity: 1 Ton / 2 Ton / 3 Ton / 5 Ton / 10 Ton / 20 Ton / 50 Ton </li>
+                    <li>Big Display 1 inch</li>
+                    <li>Battery Operated </li>
+                    <li>Remote Key Operation </li>
+                </ul>
+                <div class="flex second" style="display: flex; align-items: end;" >
+                    <!-- <h5 class="second"><sup></sup> <h5 class="v" id="price">Quote For Pricing</h5></h5> -->
+                </div>
+                <select name="hello" id="value" onchange="updatePrice()" class="second">
+                    <option value="Crane Scale 1 Ton">Crane Scale 1 Ton</option>
+                    <option value="Crane Scale 2 Ton">Crane Scale 2 Ton</option>
+                    <option value="Crane Scale 3 Ton">Crane Scale 3 Ton</option>
+                    <option value="Crane Scale 5 Ton">Crane Scale 5 Ton</option>
+                    <option value="Crane Scale 10 Ton">Crane Scale 10 Ton</option>
+                    <option value="Crane Scale 20 Ton">Crane Scale 20 Ton</option>
+                    <option value="Crane Scale 50 Ton">Crane Scale 50 Ton</option>
+                </select>
+                <div class="flex-btn second">
+                    <div class="flex-btn-left">
+                        <h3 class="buy">Qty:</h3>
+                        <div class="flex-btn-left-qty">
+                            <button class="minus" onclick="minus()">-</button>
+                            <h4 class="value">1</h4>
+                            <button class="minus" onclick="plus()">+</button>
+                        </div>
+                    </div>
+                    <div class="flex-btn-right">
+                        <h3 class="buy">Confirm Order:</h3>
+                        <div class="flex-btn-left-qty">
+                            <button class="cta-buy" onclick='addItemToCart("crane")'>Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="cart.html">
+
+        <div class="cart-button">
+            
+        </div>
+    </a>
+    <script src="itemScript.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        ScrollReveal({
+    reset: false,
+    distance: '40px',
+    duration: 1000,
+    delay: 400  
+})
+        ScrollReveal().reveal('.main-segment-left',{delay: 200,inteval: 100});
+        ScrollReveal().reveal('.second',{delay: 200,inteval: 100,origin: "left"});
+
+
+        function updatePrice() {
+            var select = document.getElementById("value");
+            var priceElement = document.getElementById("price");
+            var bg = document.querySelector(".main-segment-left")
+
+            if (select.value === "Milk Weighing Scale") {
+                bg.style.backgroundImage= "url(../images/milk.png)"
+            } else if (select.value === "Tank Weighing System") {
+                bg.style.backgroundImage= "url(../images/spz.png)"
+                // bg.style.backgroundColor = "red"
+            }
+        }
+
+        function minus() {
+            var value = document.querySelector(".value");
+            if (value.innerText > 1) {
+                value.innerText--;
+            }
+        }
+
+        function plus() {
+            var value = document.querySelector(".value");
+            value.innerText++;
+        }
+        var menu = document.querySelector(".nav-mobile");
+function hideMenu(){
+    menu.style.transform = "translateX(100%)";
+}
+function showMenu(){
+    menu.style.transform = "translateX(0%)";
+}
+    </script>
+</body>
+</html>
