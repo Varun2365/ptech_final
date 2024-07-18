@@ -37,7 +37,7 @@
         height: 70vh;
     }
     .hero::before{
-        height: 63vh;
+        height: 70vh;
     }
     .contact-segment{
         flex-direction: column;

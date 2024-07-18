@@ -516,6 +516,24 @@
             alert("Refill the form correctly")
         }
     }
+
+    var arrayOfImageUrl = ['collage1.png','wb.jpg','pp.png'];
+    var imageIndex = 0;
+    setInterval(() => {
+        if(imageIndex>arrayOfImageUrl.length-1){
+            imageIndex = 0;
+        }
+        console.log(imageIndex)
+        document.querySelector('.hero').style.opacity = 0;
+        var newImage = arrayOfImageUrl[imageIndex];
+        console.log(newImage)
+        setTimeout(() => {
+            document.querySelector('.hero').style.backgroundImage = `url(images/${newImage})`;
+
+        }, 500);
+        document.querySelector('.hero').style.opacity = 1;
+        imageIndex++
+    }, 5000);
 </script>
 
 </html>

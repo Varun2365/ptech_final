@@ -202,14 +202,17 @@ nav a{
 .hero{
     height: 70vh;
     width: 100%;
-    background-color: var(--dark-blue);
+    background-image: url('images/collage2.png');
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-size: cover;
     z-index: 10;
+    
     padding-top: 5vh;
     overflow: hidden;
+    transition: all 0.5s ease-in-out;
 }
 .hero-segment{
     height: 70vh;
@@ -220,15 +223,13 @@ nav a{
 }
 .hero::before{
     content: '';
+    /* filter: blur(24px); */
     position: absolute;
-    height: 62vh;
+    top: 0;
+    height: 70vh;
     width: 100%;
-    background-image: url(images/waves.png);
-    background-position: bottom bottom;
-    background-size: cover;
-    background-repeat: no-repeat;
-    left: 0;
-    left: calc(-20% - 50px);
+    background-color: rgba(0, 0, 0, 0.849);
+
 }
 .hero p{
     background-color: var(--pale);
