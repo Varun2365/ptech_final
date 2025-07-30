@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style-responsive.css">
     <!-- <link rel="stylesheet" href=""> -->
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -416,7 +417,14 @@
     </script>
     <script src="https://unpkg.com/scrollreveal"></script>
 </body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
+    (function(){
+        emailjs.init({
+            publicKey: "9F7anDbSfaxEvy9Tj", // Replace with your EmailJS Public Key
+        });
+    })();
+
     ScrollReveal({
         reset: false,
         distance: '40px',
@@ -426,7 +434,7 @@
     var keys = Object.keys(localStorage)
     console.log(keys)
     // for (i=0;i<keys.length;i++){
-    //     console.log(keys[i])
+    //      console.log(keys[i])
 
     if (keys.includes("items")) {
         console.log("PRESENT")
@@ -457,7 +465,7 @@
         form.reset();
     }
     function mail(name,phone,email,msg){
-            if(name!= null){
+             if(name!= null && name.trim() !== ''){ // Added trim() to check for non-empty string
                 var namepass = 1;
             }
             else{
@@ -471,14 +479,14 @@
             else{
                 var phonepass = 1;
             }
-            if(email.includes("@")){
+            if(email.includes("@") && email.trim() !== ''){ // Added trim()
                 var emailpass = 1;
             }
             else{
                 alert("Please enter valid email address")
                 var emailpass = 0;
             }
-            if(msg.length!=0){
+            if(msg.length!=0 && msg.trim() !== ''){ // Added trim()
                 var msgpass = 1;
             }
             else{
@@ -501,16 +509,21 @@
         var mailVerification = mail(name,phone,email,msg);
         console.log(mailVerification)
         if(mailVerification == 1){
-
-            Email.send({
-            SecureToken : " f9ad4001-463a-4f0d-875f-47fb33f71172",
-            To : 'ptechscale@gmail.com',
-            From : "ptechscale@gmail.com",
-            Subject : "PTECH QUOTATION",
-            Body :  "Name: " + name + "<br>" + "Email: " + email + "<br>" + "Phone Number: " + phone + "<br>" + "Message: " + msg,
-        }).then(
-          message => alert("We've recieved your query and will contact you soon! \nHave a great Day!")
-        );
+            // Use EmailJS to send the email
+            emailjs.send("service_f7is47r", "template_c5pskvc", { // Replace with your Service ID and Template ID
+                from_name: name,
+                from_email: email,
+                phone_number: phone,
+                message: msg,
+            }).then(
+                message => {
+                    alert("We've recieved your query and will contact you soon! \nHave a great Day!");
+                    resetForm(); // Optional: Clear the form after successful submission
+                },
+                error => {
+                    alert("Failed to send your query. Please try again later. \nError: " + error.text);
+                }
+            );
         }
         else{
             alert("Refill the form correctly")
