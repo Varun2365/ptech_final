@@ -217,9 +217,10 @@ nav a{
 .hero-segment{
     height: 70vh;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     flex-direction: column;
+    padding-bottom: 3vh;
 }
 .hero::before{
     content: '';
