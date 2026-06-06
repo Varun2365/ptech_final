@@ -135,8 +135,8 @@ function ContactForm() {
           className="w-full bg-transparent border-0 border-b border-[#6366f1]/40 focus:border-b-2 focus:border-[#6366f1] text-black py-3 pl-12 pr-4 outline-none placeholder:text-gray-500 transition-all duration-300"
         />
       </div>
-      <div className="flex gap-6">
-        <div className="relative flex-1">
+      <div className="flex flex-col md:flex-row gap-6">
+        <div className="relative w-full md:flex-1">
           <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
             <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
@@ -233,13 +233,13 @@ function LogoMarquee() {
       <div className="relative mt-12">
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#fafbfc] to-transparent z-10" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#fafbfc] to-transparent z-10" />
-        <div className="flex gap-16 animate-marquee whitespace-nowrap">
+        <div className="flex gap-6 md:gap-16 animate-marquee whitespace-nowrap">
           {tripled.map((logo, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-40 h-28 flex items-center justify-center bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300"
+              className="flex-shrink-0 w-24 h-16 md:w-40 md:h-28 flex items-center justify-center bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300"
             >
-              <img src={logo.src} alt={logo.alt} className="h-20 w-32 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+              <img src={logo.src} alt={logo.alt} className="h-12 w-20 md:h-20 md:w-32 object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
             </div>
           ))}
         </div>
@@ -283,7 +283,7 @@ function BentoProducts() {
             <Reveal
               key={item.slug}
               delay={i * 0.08}
-              className={`${item.cols} ${item.rows} ${
+              className={`col-span-1 md:${item.cols.replace('col-span-', 'col-span-')} ${item.rows} ${
                 item.tall ? 'min-h-[28rem]' : 'min-h-[14rem]'
               }`}
             >
@@ -320,11 +320,11 @@ function BentoProducts() {
 
         <Reveal delay={0.3}>
           <div className="flex justify-center mt-12">
-            <a href="/store/industrial-scales" className="w-full md:w-auto">
+            <Link to="/store/industrial-scales" className="w-full md:w-auto">
               <button className="w-full md:w-auto px-8 py-4 border-2 border-[#6366f1] text-[#6366f1] font-semibold rounded-xl transition-all duration-300 hover:bg-[#6366f1] hover:text-white hover:shadow-[0_0_30px_rgba(99,102,241,0.25)]">
                 Browse Full Store
               </button>
-            </a>
+            </Link>
           </div>
         </Reveal>
       </div>

@@ -215,9 +215,6 @@ export default function Cart() {
               </svg>
             </div>
             <h2 className="text-xl font-bold text-[#0a1425] mb-2">Your cart is empty</h2>
-            <p className="text-gray-400 text-sm mb-8 max-w-sm text-center">
-              Browse our products and add items to get started with your quote request.
-            </p>
             <Link
               to="/store/industrial-scales"
               className="inline-flex items-center gap-2 px-8 py-4 bg-[#6366f1] hover:bg-[#4f46e5] text-white text-sm font-semibold rounded-[5px] transition-all duration-300"

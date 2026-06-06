@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const HERO_IMAGES = ['sl1.jpeg', 'sl2.jpeg', 'sl3.jpeg', 'sl4.jpeg', 'sl5.jpeg'];
 
@@ -117,21 +118,21 @@ export default function Hero() {
             className="flex flex-wrap items-center gap-4 mt-10"
           >
             <a
-              href="#products"
+              href="#services"
               onClick={(e) => {
                 e.preventDefault();
-                document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
               <button className="px-8 py-4 bg-[#6366f1] text-white font-semibold rounded-lg transition-all duration-300 hover:bg-[#4f46e5] hover:shadow-[0_0_30px_rgba(99,102,241,0.4)] hover:-translate-y-0.5">
                 Explore Products
               </button>
             </a>
-            <a href="/store/industrial-scales">
+            <Link to="/store/industrial-scales">
               <button className="px-8 py-4 border border-white/20 text-white font-medium rounded-lg transition-all duration-300 hover:bg-white/10 hover:border-white/40">
                 Visit Store
               </button>
-            </a>
+            </Link>
           </motion.div>
 
           {/* Mobile carousel */}
