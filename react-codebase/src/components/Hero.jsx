@@ -12,8 +12,10 @@ const CAROUSEL_ITEMS = [
   { src: '/images/sl5.jpeg', label: 'Load Cells' },
 ];
 
+const experienceYears = new Date().getFullYear() - 2003;
+
 const STATS = [
-  { value: '21+', label: 'Years Experience' },
+  { value: `${experienceYears}+`, label: 'Years Experience' },
   { value: '1000+', label: 'Happy Clients' },
   { value: '50+', label: 'Product Range' },
 ];
@@ -128,7 +130,7 @@ export default function Hero() {
                 Explore Products
               </button>
             </a>
-            <Link to="/store/industrial-scales">
+            <Link to="/store">
               <button className="px-8 py-4 border border-white/20 text-white font-medium rounded-lg transition-all duration-300 hover:bg-white/10 hover:border-white/40">
                 Visit Store
               </button>

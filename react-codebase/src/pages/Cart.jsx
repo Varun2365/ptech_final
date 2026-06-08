@@ -216,7 +216,7 @@ export default function Cart() {
             </div>
             <h2 className="text-xl font-bold text-[#0a1425] mb-2">Your cart is empty</h2>
             <Link
-              to="/store/industrial-scales"
+              to="/store"
               className="inline-flex items-center gap-2 px-8 py-4 bg-[#6366f1] hover:bg-[#4f46e5] text-white text-sm font-semibold rounded-[5px] transition-all duration-300"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -240,7 +240,7 @@ export default function Cart() {
               {/* Continue Shopping */}
               <div className="mt-6">
                 <Link
-                  to="/store/industrial-scales"
+              to="/store"
                   className="inline-flex items-center gap-2 text-[#6366f1] text-sm font-semibold hover:gap-3 transition-all duration-300"
                 >
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -405,11 +405,11 @@ export default function Cart() {
                   ))}
                 </div>
 
-                <div className="flex gap-3 pt-2">
+                <div className="pt-2">
                   <button
                     onClick={sendMail}
                     disabled={sending}
-                    className="flex-1 py-3.5 bg-[#6366f1] hover:bg-[#4f46e5] text-white text-sm font-bold rounded-[5px] transition-colors duration-200 flex items-center justify-center gap-2 disabled:opacity-50"
+                    className="w-full py-3.5 bg-[#6366f1] hover:bg-[#4f46e5] text-white text-sm font-bold rounded-[5px] transition-colors duration-200 flex items-center justify-center gap-2 disabled:opacity-50"
                   >
                     {sending ? (
                       <>
@@ -422,12 +422,6 @@ export default function Cart() {
                     ) : (
                       'Submit Quote'
                     )}
-                  </button>
-                  <button
-                    onClick={() => setFormOpen(false)}
-                    className="px-6 py-3.5 text-sm font-semibold text-gray-500 hover:bg-gray-100 rounded-[5px] transition-colors duration-200"
-                  >
-                    Cancel
                   </button>
                 </div>
               </div>

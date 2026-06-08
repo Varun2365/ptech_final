@@ -6,6 +6,11 @@ import { categories, productsByCategory, getImagePath } from '../data/products';
 import { useToast } from '../components/Toast';
 
 const CATEGORY_META = {
+  'all': {
+    title: 'All Products',
+    desc: 'Browse our complete range of premium weighing solutions across all categories.',
+    image: 'industry',
+  },
   'industrial-scales': {
     title: 'Industrial Scales',
     desc: 'Heavy-duty weighing solutions built for factories, warehouses, and industrial environments.',
@@ -111,12 +116,16 @@ function ProductCard({ product, index = 0 }) {
 export default function CategoryPage() {
   const { category } = useParams();
   const toast = useToast();
-  const products = productsByCategory[category] || [];
+  const isAll = !category || category === 'all';
+  const products = isAll
+    ? Object.values(productsByCategory).flat()
+    : (productsByCategory[category] || []);
   const [contactOpen, setContactOpen] = useState(false);
   const [contactForm, setContactForm] = useState({ name: '', phone: '', email: '', message: '' });
   const [sending, setSending] = useState(false);
   const [catDropdownOpen, setCatDropdownOpen] = useState(false);
-  const meta = CATEGORY_META[category] || {
+  const activeCategory = isAll ? 'all' : category;
+  const meta = CATEGORY_META[activeCategory] || {
     title: 'Products',
     desc: 'Browse our range of premium weighing solutions.',
     image: 'industry',
@@ -198,7 +207,7 @@ export default function CategoryPage() {
             </div>
             <div className="w-px bg-white/10" />
             <div className="text-center">
-              <span className="text-white text-3xl font-extrabold block">21+</span>
+              <span className="text-white text-3xl font-extrabold block">{new Date().getFullYear() - 2003}+</span>
               <span className="text-gray-500 text-xs tracking-wider uppercase mt-1 block">Years Exp</span>
             </div>
           </motion.div>
@@ -218,7 +227,7 @@ export default function CategoryPage() {
               >
                 <div className="flex items-center gap-3">
                   <img
-                    src={getImagePath(CATEGORY_META[category]?.image || 'industry')}
+                    src={getImagePath(CATEGORY_META[activeCategory]?.image || 'industry')}
                     alt=""
                     className="w-8 h-8 object-cover rounded-full"
                     onError={(e) => {
@@ -226,7 +235,7 @@ export default function CategoryPage() {
                       e.target.src = '/images/industry.jpg';
                     }}
                   />
-                  <span>{CATEGORY_META[category]?.title || 'Select Category'}</span>
+                  <span>{CATEGORY_META[activeCategory]?.title || 'Select Category'}</span>
                 </div>
                 <svg
                   className={`w-4 h-4 text-white/60 transition-transform duration-200 ${catDropdownOpen ? 'rotate-180' : ''}`}
@@ -248,7 +257,7 @@ export default function CategoryPage() {
                     className="absolute z-50 w-full mt-2 bg-[#071a3b] rounded-xl shadow-xl overflow-hidden border border-white/10"
                   >
                     {categories.map((cat) => {
-                      const isActive = cat.slug === category;
+                      const isActive = cat.slug === activeCategory;
                       const catMeta = CATEGORY_META[cat.slug];
                       const imgSrc = getImagePath(catMeta?.image || 'industry');
                       return (
@@ -294,7 +303,7 @@ export default function CategoryPage() {
               </div>
               <nav className="py-2">
                 {categories.map((cat) => {
-                  const isActive = cat.slug === category;
+                  const isActive = cat.slug === activeCategory;
                   const catMeta = CATEGORY_META[cat.slug];
                   const imgSrc = getImagePath(catMeta?.image || 'industry');
                   return (
@@ -353,7 +362,25 @@ export default function CategoryPage() {
               <p className="text-gray-400 text-sm mt-1">{products.length} products available</p>
             </div>
 
-            {category === 'weighing-bridge' ? (
+            {isAll ? (
+              categories.filter(c => c.slug !== 'all').map((cat) => {
+                const catProducts = productsByCategory[cat.slug] || [];
+                if (catProducts.length === 0) return null;
+                return (
+                  <div key={cat.slug}>
+                    <h3 className="text-[#0a1425] text-sm font-bold px-6 py-3 bg-gray-50 border-b border-gray-200 flex items-center gap-3">
+                      <span className="w-1 h-5 bg-[#6366f1] rounded-full" />
+                      {cat.name}
+                    </h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
+                      {catProducts.map((p, i) => (
+                        <ProductCard key={p.slug} product={p} index={i} />
+                      ))}
+                    </div>
+                  </div>
+                );
+              })
+            ) : category === 'weighing-bridge' ? (
               <>
                 <div>
                   <h3 className="text-[#0a1425] text-sm font-bold px-6 py-3 bg-gray-50 border-b border-gray-200 flex items-center gap-3">
@@ -489,8 +516,8 @@ export default function CategoryPage() {
                   />
                 </div>
 
-                {/* Submit + Cancel Buttons */}
-                <div className="flex gap-3 pt-2">
+                {/* Submit Buttons */}
+                <div className="pt-2">
                   <button
                     onClick={async () => {
                       if (!contactForm.name || !contactForm.phone || !contactForm.email) {
@@ -504,7 +531,7 @@ export default function CategoryPage() {
                       setContactOpen(false);
                     }}
                     disabled={sending}
-                    className="flex-1 py-3.5 bg-[#6366f1] hover:bg-[#4f46e5] text-white text-sm font-bold rounded-[5px] transition-colors duration-200 flex items-center justify-center gap-2 disabled:opacity-50"
+                    className="w-full py-3.5 bg-[#6366f1] hover:bg-[#4f46e5] text-white text-sm font-bold rounded-[5px] transition-colors duration-200 flex items-center justify-center gap-2 disabled:opacity-50"
                   >
                     {sending ? (
                       <>
@@ -517,12 +544,6 @@ export default function CategoryPage() {
                     ) : (
                       'Send Message'
                     )}
-                  </button>
-                  <button
-                    onClick={() => setContactOpen(false)}
-                    className="px-6 py-3.5 text-sm font-semibold text-gray-500 hover:bg-gray-100 rounded-[5px] transition-colors duration-200"
-                  >
-                    Cancel
                   </button>
                 </div>
               </div>

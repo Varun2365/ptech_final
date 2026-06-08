@@ -6,6 +6,8 @@ import { getImagePath } from '../data/products';
 import { useToast } from '../components/Toast';
 import Hero from '../components/Hero';
 
+const experienceYears = new Date().getFullYear() - 2003;
+
 const aboutCards = [
   {
     title: 'Quality Assurance',
@@ -15,7 +17,7 @@ const aboutCards = [
   },
   {
     title: 'Industry Expertise',
-    desc: 'With 21 Years of experience, we offer tailored solutions to meet diverse business needs.',
+    desc: `With ${experienceYears} Years of experience, we offer tailored solutions to meet diverse business needs.`,
     color: 'from-purple-500 to-violet-500',
     icon: 'experience',
   },
@@ -320,7 +322,7 @@ function BentoProducts() {
 
         <Reveal delay={0.3}>
           <div className="flex justify-center mt-12">
-            <Link to="/store/industrial-scales" className="w-full md:w-auto">
+            <Link to="/store" className="w-full md:w-auto">
               <button className="w-full md:w-auto px-8 py-4 border-2 border-[#6366f1] text-[#6366f1] font-semibold rounded-xl transition-all duration-300 hover:bg-[#6366f1] hover:text-white hover:shadow-[0_0_30px_rgba(99,102,241,0.25)]">
                 Browse Full Store
               </button>
@@ -396,7 +398,7 @@ function AboutSection() {
               </div>
               {/* Floating badge */}
               <div className="absolute -bottom-6 -right-6 bg-[#6366f1] text-white rounded-2xl p-6 shadow-xl">
-                <span className="text-4xl font-extrabold block">21+</span>
+                <span className="text-4xl font-extrabold block">{experienceYears}+</span>
                 <span className="text-sm text-white/80">Years of Excellence</span>
               </div>
             </div>
@@ -415,7 +417,7 @@ function AboutSection() {
             </h2>
             <p className="text-gray-400 text-lg mt-6 leading-relaxed">
               P-Tech Scales is one of leading weighing scales manufacturing and weighing service
-              industry since last 21 years. We have wide range of electronic weighing machines like
+              industry since last {experienceYears} years. We have wide range of electronic weighing machines like
               table top scale, personal scale, baby scale, platform scale, crane scale, cattle scale,
               milk weighing, tank weighing, truck scale up to 200 ton.
             </p>
@@ -582,7 +584,7 @@ export default function Home() {
     <>
       <Helmet>
         <title>P-Tech Scales | Premium Weighing Solutions in India</title>
-        <meta name="description" content="P-Tech Scales - Leading manufacturer of electronic weighing machines, industrial scales, loadcells, weighing bridges and weighing automation in India. Trusted by 1000+ companies. 21+ years of experience." />
+        <meta name="description" content={`P-Tech Scales - Leading manufacturer of electronic weighing machines, industrial scales, loadcells, weighing bridges and weighing automation in India. Trusted by 1000+ companies. ${experienceYears}+ years of experience.`} />
         <link rel="canonical" href="https://www.ptechscales.in/" />
         <meta property="og:title" content="P-Tech Scales | Premium Weighing Solutions" />
         <meta property="og:description" content="India's leading weighing scales manufacturer. Industrial scales, loadcells, weighing bridges, lab scales and weighing automation solutions." />

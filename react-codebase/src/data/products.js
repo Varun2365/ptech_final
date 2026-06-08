@@ -2,6 +2,7 @@
 // Image class maps to the CSS background-image style in the original site
 
 export const categories = [
+  { slug: 'all', name: 'All Products', path: '/store' },
   { slug: 'industrial-scales', name: 'Industrial Scales', path: '/store/industrial-scales' },
   { slug: 'weighing-bridge', name: 'Weighing Bridges & Items', path: '/store/weighing-bridge' },
   { slug: 'loadcells', name: 'Loadcells', path: '/store/loadcells' },

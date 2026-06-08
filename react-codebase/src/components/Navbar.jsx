@@ -63,7 +63,7 @@ export default function Navbar() {
 
   const handleStoreClick = (e) => {
     e.preventDefault();
-    navigate('/store/industrial-scales');
+    navigate('/store');
     setMenuOpen(false);
   };
 
@@ -103,7 +103,7 @@ export default function Navbar() {
 
             {/* Desktop CTA */}
             <a
-              href="/store/industrial-scales"
+              href="/store"
               onClick={handleStoreClick}
               className="hidden md:flex items-center gap-2 px-5 py-2 bg-[#6366f1] hover:bg-[#4f46e5] text-white text-sm font-medium rounded-lg transition-all duration-200"
             >
@@ -191,7 +191,7 @@ export default function Navbar() {
 
                 {/* Store Link */}
                 <a
-                  href="/store/industrial-scales"
+                  href="/store"
                   onClick={handleStoreClick}
                   className="flex items-center gap-3 px-4 py-3.5 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-200 text-sm font-medium"
                 >

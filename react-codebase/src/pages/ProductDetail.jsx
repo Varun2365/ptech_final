@@ -86,7 +86,7 @@ export default function ProductDetail() {
         </div>
         <h1 className="text-3xl font-bold text-[#0a1425] mb-4">Product not found</h1>
         <button
-          onClick={() => navigate('/store/industrial-scales')}
+          onClick={() => navigate('/store')}
           className="px-8 py-4 bg-[#6366f1] text-white font-semibold rounded-[5px] hover:bg-[#4f46e5] transition-all duration-300"
         >
           Back to Store
@@ -154,7 +154,7 @@ export default function ProductDetail() {
           <div className="flex items-center gap-2 text-xs text-gray-400">
             <Link to="/" className="hover:text-[#6366f1] transition-colors">Home</Link>
             <span>/</span>
-            <Link to="/store/industrial-scales" className="hover:text-[#6366f1] transition-colors">Store</Link>
+            <Link to="/store" className="hover:text-[#6366f1] transition-colors">Store</Link>
             <span>/</span>
             {categoryData && (
               <>
@@ -343,7 +343,7 @@ export default function ProductDetail() {
               <div className="mt-6 grid grid-cols-3 gap-3">
                 {[
                   { icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z', label: 'Quality Assured' },
-                  { icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', label: '21+ Years' },
+                  { icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', label: `${new Date().getFullYear() - 2003}+ Years` },
                   { icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z', label: '1000+ Clients' },
                 ].map((badge) => (
                   <div key={badge.label} className="flex flex-col items-center gap-1.5 p-3 bg-white rounded-[5px] border border-gray-100">
@@ -360,7 +360,7 @@ export default function ProductDetail() {
             <Reveal delay={0.6}>
               <div className="mt-6 pt-5 border-t border-gray-200">
                 <Link
-                  to={categoryData?.path || '/store/industrial-scales'}
+                  to={categoryData?.path || '/store'}
                   className="inline-flex items-center gap-2 text-[#6366f1] text-sm font-semibold hover:gap-3 transition-all duration-300"
                 >
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

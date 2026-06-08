@@ -27,7 +27,7 @@ export default function Footer() {
             </h4>
             <ul className="flex flex-col gap-3">
               {[
-                { label: 'Store', href: '/store/industrial-scales', isLink: true },
+                { label: 'Store', href: '/store', isLink: true },
                 { label: 'Services', href: '/#services' },
                 { label: 'Contact', href: '/#contact' },
                 { label: 'About', href: '/#about' },
